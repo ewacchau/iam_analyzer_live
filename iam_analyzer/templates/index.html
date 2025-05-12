@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>IAM Risk Analyzer</h1>
+<form method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label class="form-label">Choose analysis mode:</label>
+    <select name="mode" class="form-select" required>
+      <option value="file">Upload Policy JSON</option>
+      <option value="live">Live AWS Account Audit</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <input type="file" name="policy" class="form-control">
+  </div>
+  <button class="btn btn-primary" type="submit">Analyze</button>
+</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Live AWS Audit Results</h2>
+{% for name, result in reports %}
+  <div class="card mb-3">
+    <div class="card-header">{{name}} – Score {{result.total_score}} ({{result.risk_level}})</div>
+    <div class="card-body">
+      <ul>
+        {% for f in result.findings %}
+          <li>{{f.issue}} (+{{f.score}})</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endfor %}
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Back</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Report for {{name}}</h2>
+<p>Total score: <strong>{{result.total_score}}</strong> ({{result.risk_level}})</p>
+<ul>
+  {% for f in result.findings %}
+    <li>{{f.issue}} (+{{f.score}})</li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Back</a>
+{% endblock %}
