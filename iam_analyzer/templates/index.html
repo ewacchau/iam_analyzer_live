@@ -2,6 +2,7 @@
 {% block content %}
 <h1>IAM Risk Analyzer</h1>
 <form method="post" enctype="multipart/form-data">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
   <div class="mb-3">
     <label class="form-label">Choose analysis mode:</label>
     <select name="mode" class="form-select" required>
